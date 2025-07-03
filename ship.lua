@@ -7,7 +7,7 @@ function Ship:new()
     self.y = 490
     self.speed = 400
     self.width = self.image:getWidth()
-    print(self.width)
+    -- print(self.width)
 
 end
 
