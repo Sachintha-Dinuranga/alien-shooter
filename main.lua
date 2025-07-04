@@ -4,9 +4,11 @@ function love.load()
     Object = require "classic"
     require "ship"
     require "alien"
+    require "bullet"
 
     ship = Ship()
     alien = Alien()
+    listOfBullets = {} 
 
     -- background image
     background = love.graphics.newImage("sprites/space_copy.png")
@@ -18,6 +20,11 @@ end
 function love.update(dt)
     ship:update(dt)
     alien:update(dt)
+    
+    -- iterate through list of the bullets
+    for i, v in ipairs(listOfBullets) do
+        v:update(dt)
+    end
 end
 
 
@@ -31,4 +38,14 @@ function love.draw()
 
     -- draw the alien
     alien:draw()
+
+    -- draw the bullet
+    for i, v in ipairs(listOfBullets) do
+        v:draw()
+    end
+end
+
+-- call the keypressed function
+function love.keypressed(key)
+    ship:keyPressed(key)
 end
