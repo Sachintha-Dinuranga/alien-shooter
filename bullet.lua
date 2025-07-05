@@ -4,10 +4,11 @@ function Bullet:new(x, y)
     self.image = love.graphics.newImage("sprites/bullet.png")
     self.x = x
     self.y = y
-    self.speed= 600
-
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
+    
+    self.speed= 400
+
 end
 
 function Bullet:update(dt)
@@ -22,4 +23,4 @@ end
 
 
 
--- pass the x and y of the player to the bullet
+-- pass the x and y of the ship to the bullet

@@ -7,6 +7,7 @@ function Ship:new()
     self.y = 490
     self.speed = 400
     self.width = self.image:getWidth()
+    self.height = self.image:getHeight()
     -- print(self.width)
 
 end
@@ -24,7 +25,7 @@ function Ship:update(dt)
     if self.x < 0 then
         self.x = 0
     elseif self.x + self.width > window_width then
-        self.x = window_width - self.width -- issue here
+        self.x = window_width - self.width 
     end
 end
 
@@ -37,6 +38,16 @@ end
 
 function Ship:keyPressed(key)
     if key == "space" then
-        table.insert(listOfBullets, Bullet(self.x, self.y))
+        -- Create bullet first to get its width
+        local bullet = Bullet(0, 0)  -- Temporary position
+        
+        -- Fire bullet from center of ship, accounting for bullet width
+        local bulletX = self.x + self.width / 2 - bullet.width / 2
+        local bulletY = self.y
+        
+        -- Update bullet position and add to list
+        bullet.x = bulletX
+        bullet.y = bulletY
+        table.insert(listOfBullets, bullet)
     end
 end

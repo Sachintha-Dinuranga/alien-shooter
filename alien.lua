@@ -3,9 +3,10 @@ Alien = Object:extend()
 function Alien:new()
     self.image = love.graphics.newImage("sprites/alien.png")
     self.x = 300
-    self.y = 25
+    self.y = 15
     self.speed = 100
     self.width = self.image:getWidth()
+    self.height = self.image:getHeight()
 end
 
 function Alien:update(dt)
