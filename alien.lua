@@ -16,10 +16,10 @@ function Alien:update(dt)
 
     if self.x < 0 then
         self.x = 0
-        self.speed = -(self.speed)
+        self.speed = -self.speed
     elseif self.x + self.width > window_width then
         self.x = window_width - self.width
-        self.speed = -(self.speed)
+        self.speed = -self.speed
     end
 end
 
