@@ -13,6 +13,10 @@ function love.load()
     -- background image
     background = love.graphics.newImage("sprites/space_copy.png")
 
+    -- game states
+    gameState = 1
+    score = 0
+
 end
 
 
